@@ -1,0 +1,13 @@
+<% products.forEach(function(item){ %>
+  <a href=<%="/showProducts/"+item._id%>>
+    <div class="product">
+      <p><%= item.description %></p>
+      <%= item.name %><br />
+      <div style="width: 100%; height: 80%;">
+        <img src=<%= "../../assets/imgs/"+item.img %> width="100%" height="100%"/>
+      </div>
+      Cena: <%= item.prize %><br />
+      Liczba sztuk: <%= item.quantity %><br />
+    </div>
+  </a>
+<% }) %>

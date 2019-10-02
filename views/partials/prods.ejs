@@ -1,0 +1,63 @@
+<% products.forEach(function(item){ %>
+  <div class="product">
+      <p><%= item.description %></p>
+      <%= item.name %><br />
+      <div style="width: 100%; height: 80%;">
+        <img src=<%= "../../assets/imgs/"+item.img %> width="100%" height="100%"/>
+      </div>
+      Cena: <%= item.prize %> zł <br />
+      Dostępnych sztuk: <%= item.quantity %> <br />
+      <label for="qua">Sztuki: </label><input type="text" style="width: 10%;" name="qua" id=<%= "qua"+item._id %> value="1" required>
+      <button onclick="myFunction('<%= item._id %>','<%= item.quantity %>')">Dodaj do koszyka</button>
+  </div>
+<% }) %>
+
+<script>
+
+search = (key, inputArray) => {
+ for (let i=0; i < inputArray.length; i++) {
+     if (inputArray[i] === key) {
+         return i;
+     }
+ }
+}
+
+function myFunction(nazwa,sztuki) {
+
+  var produkty;
+  var sztuki;
+  if(localStorage.getItem("products")==null||JSON.parse(localStorage.getItem("products"))==null)
+  {
+    produkty=[];
+    sztuki=[];
+  }
+  else
+  {
+    produkty = JSON.parse(localStorage.getItem("products")); //pobieranie listy produktyow
+    sztuki = JSON.parse(localStorage.getItem("qua"));
+  }
+
+  console.log(produkty);
+  let resultObject = search(nazwa, produkty);
+  console.log(resultObject);
+  if(resultObject===undefined) {
+    console.log("nie ma");
+    produkty.push(nazwa); //dodanie produktu do tablicy
+    sztuki.push(document.getElementById('qua'+nazwa).value); //dodanie liczby do tablicy
+    localStorage.setItem("products", JSON.stringify(produkty)); //zapisanie do pamięci
+    localStorage.setItem("qua", JSON.stringify(sztuki)); //zapisanie do pamięci
+    console.log(localStorage.getItem("products"));
+    console.log(localStorage.getItem("qua"));
+  }
+  else {
+    number1 = parseInt(sztuki[resultObject]);
+    number2 = parseInt(document.getElementById('qua'+nazwa).value);
+    var add = (number1 + number2).toString();
+    sztuki[resultObject] = add;
+    localStorage.setItem("qua", JSON.stringify(sztuki)); //zapisanie do pamięci
+    console.log(localStorage.getItem("products"));
+    console.log(localStorage.getItem("qua"));
+  }
+  alert("Dodano do koszyka");
+}
+</script>

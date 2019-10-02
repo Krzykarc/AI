@@ -1,0 +1,46 @@
+<div class="container">
+  <%= mssg %>
+  <h1>Dodaj ebooka</h1>
+  <%= typeof msg != 'undefined' ? msg : '' %>
+  <form action="/add" method="POST" enctype="multipart/form-data">
+    <div>
+      <label for="name">Nazwa: </label>
+      <input type="text" name="name" required>
+    </div>
+    <div>
+      <label for="description">Opis: </label>
+      <input type="text" name="description" required>
+    </div>
+    <div>
+      <label for="category">Kategoria: </label>
+      <select name="category" id="cateegory">
+        <option value="sprzedaż">sprzedaż</option>
+        <option value="motywacja" selected>motywacja</option>
+        <option value="jedzenie">jedzenie</option>
+        <option value="marketing">marketing</option>
+        <option value="podróżowanie" selected>podróżowanie</option>
+        <option value="biografie">biografie</option>
+      </select>
+    </div>
+    <div>
+      <label for="prize">Cena: </label>
+      <input type="text" name="prize" required>
+    </div>
+    <div>
+      <label for="quantity">Liczba sztuk: </label>
+      <input type="text" name="quantity" required>
+    </div>
+    <div>
+      <label for="myImage">Obrazek: </label>
+      <input name="myImage" type="file">
+    </div>
+    <button type="submit" class="btn">Dodaj</button>
+  </form>
+  <img src="<%= typeof file != 'undefined' ? file : '' %>" class="responsive-img">
+</div>
+
+<script
+src="https://code.jquery.com/jquery-3.2.1.min.js"
+integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>

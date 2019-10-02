@@ -1,0 +1,12 @@
+<form method="POST" action="/deleteOrders">
+<% products.forEach(function(item){ %>
+      <div style="background-color: lightblue; box-sizing: border-box; border: solid #5B6DCD 10px;">
+        <%= item.client %><br />
+        <%= item.items %><br />
+        <%= item.quantities %><br />
+        <%= item.totalPrize %>
+        <input type="checkbox" value="yes" style="zoom: 1.6;" name=<%=item._id%> id=<%=item._id%>>
+      </div>
+<% }) %>
+<input type="submit" value="Usuń zaznaczone" style="position:fixed; top: 10vh; right: 1.2vw;"></input>
+</form>

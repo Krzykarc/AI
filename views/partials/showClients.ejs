@@ -1,0 +1,7 @@
+<% products.forEach(function(item){ %>
+  <a href=<%="/showClients/"+item._id%>>
+    <div style="background-color: lightblue; box-sizing: border-box; border: solid #5B6DCD 10px;">
+      <%= item.email %>
+    </div>
+  </a>
+<% }) %>

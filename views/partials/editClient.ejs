@@ -1,0 +1,41 @@
+<div class="container">
+  <h1>Zmiana danych klienta</h1>
+  <%= typeof msg != 'undefined' ? msg : '' %>
+
+  <form action="/editClient" id="formula" method="POST">
+
+    <div>
+      <input type="hidden" name="ident" value="<%= products[0]._id %>" required>
+    </div>
+    <div>
+      <label for="email">Email: </label>
+      <input type="text" name="email" value="<%= products[0].email %>" required>
+    </div>
+    <div>
+      <label for="password">Hasło: </label>
+      <input type="text" name="password" value="<%= products[0].password %>" required>
+    </div>
+    <div>
+      <label for="type">Rola: </label>
+      <input type="text" name="type" value="<%= products[0].type %>" required>
+    </div>
+
+    <input type="submit" value="Zapisz zmiany" />
+
+  </form>
+
+
+    <form action="/deleteClient" method="POST">
+      <input type="hidden" name="identy" value="<%= products[0]._id %>" required>
+      <button type="submit">Usuń klienta</button>
+    </form>
+
+</div>
+
+
+
+<script
+src="https://code.jquery.com/jquery-3.2.1.min.js"
+integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>

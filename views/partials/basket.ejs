@@ -1,0 +1,27 @@
+<h1>Ładowanie produktów...</h1>
+
+<script type="text/javascript">
+function submitform()
+{
+  var produkty;
+  var sztuki;
+  if(localStorage.getItem("products")===null)
+  {
+    sztuki=[];
+    produkty=[];
+  }
+  else {
+    produkty = JSON.parse(localStorage.getItem("products"));
+    document.getElementById('basket').value = produkty;
+    sztuki = JSON.parse(localStorage.getItem("qua"));
+    document.getElementById('quant').value = sztuki;
+  }
+
+    document.forms["myform"].submit();
+}
+</script>
+<form id="myform" method="POST" action="/myBasket">
+<input type='hidden' name='basket' id='basket' value="">
+<input type='hidden' name='quant' id='quant' value="">
+<a href="javascript: submitform()"></a>
+</form>

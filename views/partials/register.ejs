@@ -1,0 +1,11 @@
+<form class="login" method="POST">
+  <div>
+    <label for="email" class="biggerLabel">Email: </label>
+    <input type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="biggerInput" required>
+  </div>
+  <div>
+    <label for="haslo" class="biggerLabel">Hasło: </label>
+      <input type="password" name="haslo" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Musi zawierać numer, wielką i małą literę i minimum 8 znaków." class="biggerInput" required>
+  </div>
+  <input type="submit" value="Zarejestruj" class="biggerLabel" />
+</form>

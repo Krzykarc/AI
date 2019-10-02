@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="/assets/styles.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+
+      <div class="topLeft">
+        <div class="center">📖Ebook4You📖</div>
+      </div>
+
+      <div class="topRight">
+        <div id="none">
+          <%- include(header[0]) %>
+        </div>
+        <div id="active">
+          <%- include(header[1]) %>
+        </div>
+        <div id="admin">
+          <%- include(header[2]) %>
+        </div>
+      </div>
+
+      <div class="downLeft">
+        <% include partials/nav.ejs %>
+      </div>
+
+      <div class="downRight" style="padding: 1vw;">
+          <%- include(page) %>
+      </div>
+
+  </body>
+</html>
+<script>
+
+
+window.onload = function(){
+  if(typeof submitform == 'function')
+    submitform();
+  if(typeof upToDateUser == 'function')
+    upToDateUser();
+  var type = localStorage.getItem("user");
+  console.log(type);
+  if(type===null || type=="") {
+    document.getElementById("active").className += "hide";
+    document.getElementById("admin").className += "hide";
+  } else if(type=="active") {
+    document.getElementById("none").className += "hide";
+    document.getElementById("admin").className += "hide";
+  } else {
+    document.getElementById("active").className += "hide";
+    document.getElementById("none").className += "hide";
+  }
+}
+</script>

@@ -1,0 +1,176 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.description{
+  display: none;
+}
+
+.description:hover{
+  display: block;
+}
+
+.hide{
+  display: none;
+}
+
+.login{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+}
+
+.topLeft{
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 10vw;
+  height: 10vh;
+
+  background-color: darkgray;
+  text-align: center;
+  font-family: Lucida Sans Unicode;
+}
+
+.downLeft{
+  position: fixed;
+  top: 10vh;
+  height: 90vh;
+  width: 10vw;
+  background-color: gray;
+}
+
+.topRight{
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  width: 90vw;
+  height: 10vh;
+  background-color: gray;
+}
+
+.downRight{
+  position: fixed;
+  top: 10vh;
+  left: 10vw;
+  background-color: white;
+  height: 85vh;
+  width: 90vw;
+  overflow-y:scroll;
+}
+
+.center{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.vcenter {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.nav{
+  text-align: center;
+  padding: 2vh;
+}
+
+.nav div{
+  text-align: center;
+  padding: 2vh;
+  background-color: darkgray;
+}
+
+.nav div:hover{
+  text-align: center;
+  padding: 2vh;
+  background-color: white;
+}
+
+.header{
+  background-color: gray;
+  height: 100%;
+  padding: 2vh
+}
+
+.header span{
+  margin: 1vh;
+  padding: 1vh;
+  background-color: darkgray;
+}
+
+.header span:hover{
+  background-color: white;
+}
+
+.anime{
+  animation-name: example;
+  animation-duration: 14s;
+}
+
+.anime2{
+  animation-name: example2;
+  animation-duration: 14s;
+}
+
+.anime h1{
+  text-align: center;
+  font-size: 33px;
+}
+
+.anime h2{
+  text-align: center;
+  font-size: 33px;
+}
+
+.biggerInput{
+  background-color: #eeeeee;
+  font-size: 50px;
+}
+
+.biggerLabel{
+  font-size: 50px;
+}
+
+.container{
+  margin: 2vw;
+}
+
+.product{
+  position: relative; width: 18vw; height: 20vw; background-color: lightblue; float: left; box-sizing: border-box; border: solid #5B6DCD 10px;
+}
+
+.product p{
+  display: none;
+}
+
+.product:hover p{
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 80%;
+  background-color: gray;
+  opacity: 0.9;
+  color: white;
+}
+
+@keyframes example {
+  from {opacity: 0.2; font-size: 5px;}
+  to {opacity: 1;font-size: 33px;}
+}
+
+@keyframes example2 {
+  from {background-color: black;}
+  to {background-color: white;}
+}

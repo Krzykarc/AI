@@ -1,0 +1,50 @@
+<div class="container">
+  <h1>Zmiana danych produktu</h1>
+  <%= typeof msg != 'undefined' ? msg : '' %>
+  <form action="/edit" method="POST" enctype="multipart/form-data">
+    <div>
+      <label for="ident"></label>
+      <input type="hidden" name="ident" value="<%= products[0]._id %>" required>
+    </div>
+    <div>
+      <label for="namee">Nazwa produktu: </label>
+      <input type="text" name="namee" value="<%= products[0].name %>" required>
+    </div>
+    <div>
+      <label for="description">Opis: </label>
+      <input type="text" name="description" value="<%= products[0].description %>" required>
+    </div>
+    <div>
+      <label for="category">Kategoria: </label>
+      <input type="text" name="category" value="<%= products[0].category %>" required>
+    </div>
+    <div>
+      <label for="prize">Cena: </label>
+      <input type="text" name="prize" value="<%= products[0].prize %>" required>
+    </div>
+    <div>
+      <label for="quantity">Liczba sztuk: </label>
+      <input type="text" name="quantity" value="<%= products[0].quantity %>" required>
+    </div>
+    <div>
+      <label for="myImage">Obrazek (w przypadku zmiany): </label>
+      <input name="myImage" type="file" value="<%= products[0].quantity %>">
+    </div>
+    <button type="submit" class="btn">Zapisz zmiany</button>
+  </form>
+  <img src="<%= typeof file != 'undefined' ? file : '' %>" class="responsive-img">
+
+  <form action="/delete" method="POST">
+    <label for="identy"></label>
+    <input type="hidden" name="identy" value="<%= products[0]._id %>" required>
+    <button type="submit">Usuń produkt</button>
+  </form>
+
+
+</div>
+
+<script
+src="https://code.jquery.com/jquery-3.2.1.min.js"
+integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>

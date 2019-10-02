@@ -1,0 +1,60 @@
+<form method="POST" action="/Zlozono" id="save">
+  <input type="hidden" id="email" name="email" value="")>
+  <% products.forEach(function(item,index){ %>
+    <div class="product">
+        <p><%= item.description %></p>
+        <%= item.name %><br />
+        <div style="width: 100%; height: 80%;">
+          <img src=<%= "../../assets/imgs/"+item.img %> width="100%" height="100%"/>
+        </div>
+        <input type="text" id=<%= item._id %> name=<%= item._id %> value=<%= quantities[index] %>><br />
+        <%= item.prize %><br />
+    </div>
+  <% }) %>
+    <br />
+    <input type="submit" value="Złóż zamówienie" style="position:fixed; bottom: 90vh; left: 10vw;">
+</form>
+<button value="Zapisz zmiany" onclick="save()" style="position:fixed; top: 0vh; left: 10vw;">Zapisz zmiany</button>
+<a href="/basket" onclick="dylit()" style="position:fixed; top: 10vh; right: 1.2vw;"><button>Opróżnij koszyk</button></a>
+
+
+<script>
+function dylit(){
+  localStorage.setItem("qua",null);
+  localStorage.setItem("products",null);
+}
+function save(){
+  var newLocal = [];
+  console.log(document.getElementById("save"));
+  var niewiem = document.getElementById("save");
+  Array.prototype.forEach.call(niewiem, child => {
+    console.log(child.value+"siema")
+    newLocal.push(child.value);
+  });
+  newLocal.pop();
+  console.log(newLocal);
+  console.log(JSON.stringify(newLocal));
+  console.log(localStorage.getItem("qua"));
+  localStorage.setItem("qua",JSON.stringify(newLocal));
+  alert("Zapisano zmiany");
+}
+function submitform(){
+
+  document.getElementById("email").value = localStorage.getItem("email");
+  var produkty;
+  if(localStorage.getItem("products")===null)
+    produkty=[];
+  else
+    produkty = JSON.parse(localStorage.getItem("products")); //pobieranie listy produktyow
+}
+
+function myFunction() {
+  var produkty;
+  if(localStorage.getItem("products")===null)
+    produkty=[];
+  else
+    produkty = JSON.parse(localStorage.getItem("products")); //pobieranie listy produktyow
+
+  console.log(localStorage.getItem("products"));
+}
+</script>
